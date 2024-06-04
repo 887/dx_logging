@@ -1,5 +1,5 @@
 [package]
-name = "dxp_logging"
+name = "dxp-logging"
 version = "0.1.0"
 edition = "2021"
 
