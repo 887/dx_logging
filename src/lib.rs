@@ -3,7 +3,7 @@ use tracing_subscriber::filter;
 //not - can't use     tracing_subscriber::fmt::init();
 //anything that pins itself to memory is incompatible with hot-reload and defeats the purpose
 
-pub type Result<T> = core::result::Result<T, Box<dyn std::error::Error>>;
+pub type Result<T> = core::result::Result<T, Box<dyn std::error::Error + Send>>;
 
 #[cfg(all(feature = "log", not(feature = "log-file")))]
 pub type LogGuard = tracing::subscriber::DefaultGuard;
