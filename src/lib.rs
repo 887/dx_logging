@@ -38,7 +38,7 @@ pub fn get_subscription_for_subscriber(log_subscriber: LogSubscriber) -> LogGuar
 }
 
 #[cfg(all(feature = "log", not(feature = "log-file")))]
-fn get_subscriber() -> Result<LogSubscriber> {
+pub fn get_subscriber() -> Result<LogSubscriber> {
     let log_subscriber = tracing_subscriber::fmt()
         // filter spans/events with level TRACE or higher.
         // .with_max_level(Level::TRACE)
@@ -77,7 +77,7 @@ pub fn get_subscription_for_subscriber(log_subscriber: LogSubscriber) -> LogGuar
 }
 
 #[cfg(all(feature = "log", feature = "log-file"))]
-fn get_subscriber() -> Result<LogSubscriber> {
+pub fn get_subscriber() -> Result<LogSubscriber> {
     let log_dir = std::env::var("LOG_PATH").map_err(|e| format!("LOG_PATH is not set {:?}", e))?;
     let log_prefix =
         std::env::var("LOG_PREFIX").map_err(|e| format!("LOG_PREFIX is not set {:?}", e))?;
