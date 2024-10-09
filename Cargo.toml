@@ -9,6 +9,7 @@ tracing = "^0.1.40"
 tracing-appender = { version = "^0.2.3", optional = true }
 
 [features]
-default = ["log"]
+# default = ["log-file"]
+default = []
 log=[]
-log-file=["log", "dep:tracing-appender"]
+log-file=["dep:tracing-appender"]
