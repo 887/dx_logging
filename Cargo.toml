@@ -11,5 +11,4 @@ tracing-appender = { version = "^0.2.3", optional = true }
 [features]
 # default = ["log-file"]
 default = []
-log=[]
 log-file=["dep:tracing-appender"]
